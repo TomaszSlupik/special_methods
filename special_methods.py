@@ -43,4 +43,12 @@ print (v1)
 print ("----")
 
 # __len__ 
+class LengthOfTheSide:
+    def __init__(self, *args) -> None:
+        self.args = args
 
+    def __len__ (self):
+        return len(self.args)
+    
+length_of_the_side = LengthOfTheSide(2, 3, 1, 1)
+print(f"Liczba długości boków: {len(length_of_the_side)}")
