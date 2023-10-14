@@ -52,3 +52,38 @@ class LengthOfTheSide:
     
 length_of_the_side = LengthOfTheSide(2, 3, 1, 1)
 print(f"Liczba długości boków: {len(length_of_the_side)}")
+
+print ("----")
+
+# __bool__ 
+class CheckNumber:
+    def __init__(self, *args) -> None:
+        self.args = args
+
+    def __bool__ (self):
+        if not self.args:  
+            return False
+        if self.args[0] == 0:
+            return False
+        elif self.args == "":
+            return False
+        else:
+            return True
+
+v1 = CheckNumber()
+
+v2 = CheckNumber(3, 2)
+
+v3 = CheckNumber(0, -3, 2)
+
+v4 = CheckNumber(5, 0, -1)
+
+for check in [v1, v2, v3, v4]:
+    print(bool(check))
+
+
+
+
+
+
+
