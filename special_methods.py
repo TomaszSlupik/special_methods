@@ -11,4 +11,32 @@ person = Person('Mike', 'Smith')
 
 print (person)
 
-# 
+print ("----")
+
+# __str__
+class Man():
+    def __init__(self, first_name, last_name) -> None:
+        self.first_name = first_name
+        self.last_name = last_name
+
+    def __str__(self,):
+        return f"First name: {self.first_name}\nLast name: {self.last_name}"
+
+man = Man("John", "Doe")
+print (man)
+
+print ("----")
+
+# *args - dowolna liczba argumentów i metoda __repr__ do wyświetlenia obiektu:
+class Vector ():
+    def __init__(self, *components) -> None:
+        self._components = components
+
+    def __repr__(self) -> str:
+        return f"Vector{self._components}"
+
+v1 = Vector(-3, 4, 2)
+print (v1)
+
+print ("----")
+
