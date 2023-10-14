@@ -82,8 +82,22 @@ for check in [v1, v2, v3, v4]:
     print(bool(check))
 
 
+# __add__
+class AddNumber():
+    def __init__(self, *args) -> None:
+        self.args = args
 
+    def __add__(self, numbers):
+        args = tuple(x + y for x, y in zip(self.args, numbers.args))
+        return AddNumber(*args)
+    
+    def __str__(self) -> str:
+        return f"Wynik dodawanie tupli: {self.args}"
 
+firstNumber = AddNumber(4, 2)
+secondNumber = AddNumber(-1, 3)
+
+print(firstNumber.__add__(secondNumber))
 
 
 
