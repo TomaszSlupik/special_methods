@@ -27,7 +27,8 @@ print (man)
 
 print ("----")
 
-# *args - dowolna liczba argumentów i metoda __repr__ do wyświetlenia obiektu:
+# *args - dowolna liczba argumentów i metoda __repr__ do wyświetlenia obiektu - formalna
+# __str__ - nieformalna reprezentacja obiekt
 class Vector ():
     def __init__(self, *components) -> None:
         self._components = components
@@ -35,8 +36,11 @@ class Vector ():
     def __repr__(self) -> str:
         return f"Vector{self._components}"
 
+
 v1 = Vector(-3, 4, 2)
 print (v1)
 
 print ("----")
+
+# __len__ 
 
