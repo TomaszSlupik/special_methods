@@ -137,3 +137,12 @@ twoSub = SubNumber(-1, 3)
 print(oneSub - twoSub)
 
 print ("----")
+
+# __mul__
+
+class MulNumber():
+    def __init__(self, *args):
+        self.args = args
+
+    def __str__(self):
+        return {self.args}
