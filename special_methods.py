@@ -81,6 +81,7 @@ v4 = CheckNumber(5, 0, -1)
 for check in [v1, v2, v3, v4]:
     print(bool(check))
 
+print ("----")
 
 # __add__
 class AddNumber():
@@ -99,5 +100,40 @@ secondNumber = AddNumber(-1, 3)
 
 print(firstNumber.__add__(secondNumber))
 
+print ("----")
+
+# Try except 
+class TestVector ():
+    def __init__(self, *value) -> None:
+        self.value = value
+    
+
+vectorOne = TestVector(1, 3)
+vectorTwo = TestVector(2, 2)
+
+try:
+    vectorOne + vectorTwo
+except TypeError as error:
+    print(f'Błąd, nie możesz dodać liczb ${error}')
 
 
+print ("----")
+
+# __sub__
+class SubNumber():
+    def __init__(self, *args) -> None:
+        self.args = args
+
+    def __sub__(self, numbers):
+        finallSub = tuple(x - y for x,y in zip(self.args, numbers.args))
+        return finallSub
+
+    def __str__(self) -> str:
+        return {self.args}
+    
+oneSub = SubNumber(4, 2)
+twoSub = SubNumber(-1, 3)
+
+print(oneSub - twoSub)
+
+print ("----")
