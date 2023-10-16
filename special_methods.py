@@ -144,5 +144,119 @@ class MulNumber():
     def __init__(self, *args):
         self.args = args
 
+    def __mul__(self, numbers):
+        finallMul = tuple(x * y for x, y in zip(self.args, numbers.args))
+        return finallMul
+    
     def __str__(self):
         return {self.args}
+    
+oneMul = MulNumber(4, 2)
+twoMul = MulNumber(-1, 3)
+print (oneMul * twoMul)
+
+print ("----")
+
+# __truediv__
+class TrueDivNumber():
+    def __init__(self, *args):
+        self.args = args
+
+    def __truediv__(self, numbers):
+        truediv = tuple(x / y for x, y in zip(self.args, numbers.args))
+        return truediv
+
+    def __str__(self) -> str:
+        return self.args
+    
+oneTrueDiv = TrueDivNumber(4, 2)
+twoTrueDiv = TrueDivNumber(-1, 4)
+print(oneTrueDiv / twoTrueDiv)
+
+print ("----")
+
+# __floordiv__
+class NumberTotal ():
+    def __init__(self, *args):
+        self.args = args
+
+    def __floordiv__(self, number):
+        floorNumber = tuple(x // y for x,y in zip(self.args, number.args))
+        return floorNumber
+
+    def __str__(self):
+        return {self.args}
+    
+firstTotal = NumberTotal(4, 2)
+secondTotal = NumberTotal(-1, 4)
+
+print(firstTotal // secondTotal)
+
+
+print ("----")
+
+# dodawanie stringów 
+class Doc:
+    def __init__(self, string) -> None:
+        self.string = string
+
+    def __repr__(self) -> str:
+        return f"Doc(string='{self.string}')"
+    
+    def __str__(self) -> str:
+        return f"{self.string}"
+    
+    def __add__(self, added):
+        if isinstance(added, Doc):
+            return Doc (self.string + ' ' + added.string)
+        else:
+            raise TypeError("Możesz tylko dodać obiekty w klasie Doc")
+    
+doc1 = Doc('Python')
+doc2 = Doc('3.8')
+
+print(doc1 + doc2)
+
+print ("----")
+     
+
+# 
+class Hashtag:
+    def __init__(self, string):
+        self.string = string
+
+    def __str__(self) -> str:
+        return f"#{self.string}"
+    
+    def __add__(self, addHash):
+        if isinstance(addHash, Hashtag):
+            return Hashtag(self.string+ ' ' + '#'+ addHash.string)
+    
+
+hash1 = Hashtag('python')
+hash2 = Hashtag('developer')
+hash3 = Hashtag('oop')
+
+print (hash1 + hash2 + hash3)
+    
+print ("----")
+
+# __eq__
+class CheckString ():
+    def __init__(self, string) -> None:
+        self.string = string
+
+    def __str__(self) -> str:
+        return {self.string}
+    
+    def __eq__(self, other) -> bool:
+        if isinstance(other, CheckString):
+            return self.string == other.string
+        return False
+
+oneCheck = CheckString('Python')
+twoCheck = CheckString('3.8')
+
+print (oneCheck ==  twoCheck)
+
+print ("----")
