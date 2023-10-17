@@ -260,3 +260,81 @@ twoCheck = CheckString('3.8')
 print (oneCheck ==  twoCheck)
 
 print ("----")
+
+# __lt__
+
+class WhatBigger():
+    def __init__(self, value):
+        self.value = value
+    
+    def __repr__(self) -> str:
+        return str(self.value)
+    
+    def __lt__(self):
+        return len(self.value)
+    
+oneWhatBigger = WhatBigger('sport')
+twoWhatBigger = WhatBigger('activity')
+
+print (len(oneWhatBigger.value) < len(twoWhatBigger.value))
+
+print ("----")
+
+# __iadd__
+class Gluing ():
+    def __init__(self, string):
+        self.string = string
+
+    def __iadd__(self, addValue):
+        finall = (self.string) +" & " + (addValue.string)
+        return finall
+    
+    def __repr__(self) -> str:
+        return f"{self.string}"
+    
+gluOne = Gluing('sport')
+gluTwo = Gluing('activity')
+
+gluOne += gluTwo
+print (gluOne)
+
+print ("----")
+
+# __str__
+import uuid
+class Book:
+
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+    @staticmethod
+    def get_id():
+        return str(uuid.uuid4().fields[-1])[:6]
+    
+    def __str__(self):
+        return f"Book ID: {book.get_id()} | Title: {self.title} | Author {self.author}"
+    
+book = Book('The Lord of the Rings', 'J.R.R. Tolkien')
+print (book)
+    
+print ("----")
+
+# mro()
+class Food ():
+    def __init__ (self, quantity):
+        self.quantity =  quantity
+
+class Fish:
+    def __init__(self, brand):
+        self.brand = brand
+
+class Macronutrients(Food, Fish):
+    def __init__(self, protein, quantity, brand):
+        Food.__init__(quantity)
+        Fish.__init__(brand)
+        self.protein = protein
+
+print (Macronutrients.mro())
+
+print ("----")
